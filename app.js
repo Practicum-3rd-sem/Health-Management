@@ -50,29 +50,46 @@ app.use("/", require("./routes/auth"));
 
 const PORT = process.env.PORT || 3000;
 
-// code of appointment ----------
-var Dates=[];
-var Descriptions=[];
-var Start_times=[];
-var End_times=[];
-
 var Date,Description,Start_time, End_time;
 
 app.get("/appointment",function(request,response){
-    response.render("appointment", {DATE: Dates, DESCRIPTION: Descriptions, START_TIME:Start_times, END_TIME:End_times});
+   var foundUser=request.user;
+    response.render("appointment", {appointments: foundUser.appointments});
 });
 
-app.post("/appointment",function(request,response){
-    Date=request.body.date;
-    Description=request.body.description;
-    Start_time=request.body.start_time;
-    End_time=request.body.end_time;
-    Dates.push(Date);
-    Descriptions.push(Description);
-    Start_times.push(Start_time);
-    End_times.push(End_time);
+app.post("/appointment", async (req,res) => {
+    Date=req.body.date;
+    Description=req.body.description;
+    Start_time=req.body.start_time;
+    End_time=req.body.end_time;
+    
+    const Founduser = req.user;
+  // clg
+  try{
+    const user = await User.findById(Founduser.id)
+      // console.log(freq)
+  
+    if(user){
+      var d ={
+          Date:Date,
+          Description:Description,
+          Start_time:Start_time,
+          End_time:End_time
+      }
+      user.appointments.push(d);
+  
+      await user.save();
+      res.status(200).redirect("/appointment");
+    }else{
+      res.status(404).send("User not found");
+    }
+  }catch (err) {
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
 
-    response.redirect("/appointment");
+
+    // response.redirect("/appointment");
 });
 // end of appointment -----
 
@@ -80,44 +97,67 @@ app.post("/appointment",function(request,response){
 
 var name,mobile,mail,address,weight,height,gen,BMI,bg;
 
-app.post("/profile", function(request,response){
+app.post("/profile", async(request,response) =>{
   name=request.body.Name;
   mobile=request.body.phone;
-  mail=request.body.Email1;
   bg=request.body.blood_grp;
+  mail=request.body.Email1;
   address=request.body.address;
   weight=Number(request.body.Weight);
   height=Number(request.body.Height);
   gen=request.body.gender;
   BMI=(weight*100*100)/(height*height); 
-  BMI=BMI.toFixed(1);   
+  BMI=BMI.toFixed(1); 
+  const Founduser = request.user;
+
+  const user = await User.findById(Founduser.id)
+
+if(user){
+  user.displayName = name;
+  user.userDetails[0].mobile = mobile;
+  user.userDetails[0].bg = bg;
+  user.userDetails[0].address = address;
+  user.userDetails[0].weight = weight;
+  user.userDetails[0].height = height;
+  user.userDetails[0].gen = gen;
+  user.userDetails[0].BMI = BMI;
+  user.userDetails[0].mail = mail;
+
+  await user.save();
+  // res.status(200).redirect("/dashboard");
   response.redirect("/profile");
+}else{
+  res.status(404).send("User not found");
+}
+
 });
 
 app.get("/profile", function(request,response){
-  response.render("profile", {NAME : name, MAIL: mail, WEIGHT: weight, HEIGHT: height, bmi: BMI, BLOOD_GRP: bg});
+  const foundUser = request.user;
+  response.render("profile", {foundUser,userDetails: foundUser.userDetails});
 });
 // end of profile
 
 // code of dashboard
-var medicines=[];
-var times=[];
-var frequencies=[];
-var medname, time, freq;
+
 
 app.post("/dashboard", async (req, res) => {
+  var medname, time, freq;
   medname=req.body.Medicine_name;
   time=req.body.medicine_time;
   freq=req.body.medicine_freq;
   const Founduser = req.user;
   // clg
   const user = await User.findById(Founduser.id)
-    console.log(freq)
+    // console.log(freq)
 
   if(user){
-    user.medname.push(medname);
-    user.time.push(time);
-    user.freq.push(freq);
+    var d ={
+      medname,
+      time,
+      freq
+    }
+    user.details.push(d);
 
     await user.save();
     res.status(200).redirect("/dashboard");
@@ -130,7 +170,7 @@ app.post("/dashboard", async (req, res) => {
 
 app.get("/dashboard",ensureAuth,function(request, response){
   foundUser=request.user;
-  response.render("index", {MEDICINES: medicines, TIMES: times, FREQ: frequencies,foundUser});
+  response.render("index", {foundUser});
 
 });
 // end of dashboard
@@ -140,17 +180,34 @@ var Food=[];
 var Calories=[];
 var food,calories;
 var sum=Number(0);
-app.post("/calorie_tracker",function(request,response){
-  food=request.body.Item;
-  Food.push(food);
-  calories=Number(request.body.cal);
-  Calories.push(calories);
-  sum=sum+calories;
-  response.redirect("/calorie_tracker");
+app.post("/calorie_tracker",async (req,res) =>{
+  food=req.body.Item;
+  calories=Number(req.body.cal);
+
+  const Founduser = req.user;
+  // clg
+  const user = await User.findById(Founduser.id)
+
+  if(user){
+    var d ={
+      food,
+      calories
+    }
+    sum=sum+calories;
+
+    user.meals.push(d);
+
+    await user.save();
+    res.status(200).redirect("/calorie_tracker");
+  }else{
+    res.status(404).send("User not found");
+  }  
+  // response.redirect("/calorie_tracker");
 });
 
-app.get("/calorie_tracker", function(request,response){
-  response.render("calorie",{FOOD: Food, CALORIES: Calories,SUM:sum});
+app.get("/calorie_tracker", function(req,res){
+  const foundUser = req.user;
+  res.render("calorie",{meals: foundUser.meals, sum: sum});
 });
 // end of calorie
 

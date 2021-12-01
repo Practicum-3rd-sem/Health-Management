@@ -37,7 +37,7 @@
       </li> -->
       
       <li class="list">
-        <a href="#">
+        <a href="/appointment">
           <span class="icon"><i class="fas fa-calendar-check"></i></span>
           <span class="title">Appointment</span>
         </a>
@@ -161,16 +161,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% for(var i=0;i<DATE.length;i++) { %>
+                      <%if(appointments.length > 0) {%>
+                        <% for(var i=0;i<appointments.length;i++) { %>
                           <tr class="text-center align-middle">
-                            <td id="date2"><%= DATE[i] %></td>
-                            <td><%= DESCRIPTION[i] %></td>
-                            <td><%= START_TIME[i] %></td>
-                            <td><%= END_TIME[i] %></td>
+                            <td id="date2"><%= appointments[i].Date %></td>
+                            <td><%= appointments[i].Description %></td>
+                            <td><%= appointments[i].Start_time %></td>
+                            <td><%= appointments[i].End_time %></td>
                             <td>
                               <button class="btn btn-danger btn-sm" onclick="Delete(this)"><i class="fas fa-trash"></i></button>
                             </td>
                           </tr>
+                        <% } %>
                         <% } %>
                     </tbody>
                 </table>

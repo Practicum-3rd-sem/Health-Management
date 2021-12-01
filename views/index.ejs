@@ -32,7 +32,7 @@
       </li> -->
       
       <li class="list">
-        <a href="#">
+        <a href="/appointment">
           <span class="icon"><i class="fas fa-calendar-check"></i></span>
           <span class="title">Appointment</span>
         </a>
@@ -127,13 +127,15 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <%for(var i=0;i<MEDICINES.length; i++){%>
+                        <%if(foundUser.details.length > 0) {%>
+                        <%for(var i=0;i<foundUser.details.length; i++){%>
                           <tr class="text-center align-middle">
-                            <td><%= MEDICINES[i] %></td>
-                            <td><%= TIMES[i] %></td>
-                            <td><%= FREQ[i] %></td>
+                            <td><%= foundUser.details[i].medname%></td>
+                            <td><%= foundUser.details[i].time %></td>
+                            <td><%= foundUser.details[i].freq %></td>
                             <td><button class="btn btn-danger btn-sm del_row" onclick="Delete(this)"><i class="fas fa-trash"></i></button></td>
                           </tr>
+                        <% } %>
                         <% } %>
                       </tbody>
                     </table>

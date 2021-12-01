@@ -86,7 +86,7 @@
         </form>
     <!-- Calorie Count -->
 
-    <h3 class="center-align">Total Calories: <span class="total-calories"><%=SUM%></span></h3>
+    <h3 class="center-align">Total Calories: <span class="total-calories"><%=sum%></span></h3>
     <br>
     
     <a href="#" class="center clear-btn btn blue">Clear All</a>
@@ -101,12 +101,14 @@
                 </tr>
             </thead>
             <tbody>
-                <%for(var i=0;i<FOOD.length; i++){%>
+              <%if(meals.length > 0) {%>
+                <%for(var i=0;i<meals.length; i++){%>
                     <tr class="text-center align-middle">
-                        <td><%=FOOD[i]%></td>
-                        <td><%=CALORIES[i]%></td>
+                        <td><%=meals[i].food%></td>
+                        <td><%=meals[i].calories%></td>
                         <td><button type="button" value="Delete" class="delete" onclick="Delete(this)"><i class="fas fa-trash"></i></button></td>
                     </tr>
+                <%}%>
                 <%}%>
             </tbody>
         </table>
