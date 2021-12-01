@@ -1,0 +1,170 @@
+/* CSS for appointment wepage */
+
+* {
+  box-sizing: border-box;
+  font-size: medium;
+}
+.card-header * {
+  list-style-type: none;
+}
+
+.required:after {
+  content: "*";
+  /* font-weight: bold; */
+  color: red;
+  margin-left: 5px;
+}
+.calendar .card-header{
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+.card-header {
+  padding: 50px 25px;
+  width: 100%;
+  border-radius: 10px;
+  background-image: radial-gradient(circle at 17% 77%, rgba(17, 17, 17,0.04) 0%, rgba(17, 17, 17,0.04) 50%,rgba(197, 197, 197,0.04) 50%, rgba(197, 197, 197,0.04) 100%),radial-gradient(circle at 26% 17%, rgba(64, 64, 64,0.04) 0%, rgba(64, 64, 64,0.04) 50%,rgba(244, 244, 244,0.04) 50%, rgba(244, 244, 244,0.04) 100%),radial-gradient(circle at 44% 60%, rgba(177, 177, 177,0.04) 0%, rgba(177, 177, 177,0.04) 50%,rgba(187, 187, 187,0.04) 50%, rgba(187, 187, 187,0.04) 100%),linear-gradient(19deg, rgb(28, 117, 250),rgb(34, 2, 159));
+}
+
+.card-header ul {
+  margin: 0;
+  padding: 0;
+}
+.this_month{
+  color: rgb(117, 122, 126) !important;
+}
+.card-header ul li {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+#mainCal{
+  margin-left: 4vw !important;
+}
+form{
+  width: 45vw !important;
+}
+.col{
+  margin-left: 0.8vw !important;
+}
+#clearappointments button{
+  padding: 1vw;
+  border-radius: 30px;
+  width: 30vw !important;
+  margin-left: -1.7vw;
+}
+.form-row button{
+  padding: 1vw;
+  border-radius: 30px;
+  font-size: medium;
+}
+.heading{
+  margin-left: -2.2vw;
+}
+#appointment_list th{
+  color: white;
+  font-weight: 600;
+  font: normal !important;
+  background-color: rgb(27, 97, 228) !important;
+  border-style: double;
+  padding: 2vw;
+}
+#date2{
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  border-style: none;
+  /* border: white; */
+}
+#action
+{
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+  border-style: none !important;
+}
+.apptable th{
+  width: 30px !important;
+}
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+}
+.iconcal{
+  background-size: 100px;
+}
+.iconapp{
+  z-index: 1;
+  position: absolute;
+  float: right;
+  top: 10px;
+  left: 80px;
+  /* width: 10vw !important; */
+}
+.days {
+  padding: 10px 0;
+}
+
+.badge1 {
+  position: relative;
+}
+.badge1[data-badge]:after {
+  content: attr(data-badge);
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  font-size: 0.7em;
+  background: red;
+  color: white;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px #333;
+}
+
+@media screen and (max-width: 720px) {
+  .weekdays td,
+  .days td {
+     width: 13.1%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays td,
+  .days td {
+     width: 12.5%;
+  }
+
+  .days td .active {
+     padding: 2px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays td,
+  .days td {
+     width: 12.2%;
+  }
+}
+
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(93, 93, 109);
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(59, 80, 201);
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(59, 80, 201);
+  border: solid 1px rgb(59, 80, 201);
+}
+/* SCROLLBAR END */

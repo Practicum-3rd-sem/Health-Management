@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Navigation_bar.css" />
+    <link rel="stylesheet" href="/dashcont.css" />
+    <link rel="stylesheet" href="/info_badge.css" />
+    <link rel="stylesheet" href="/calender.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&amp;family=Poppins:wght@400;500;600&amp;display=swap">
+    <script src="https://kit.fontawesome.com/d8ab0e903f.js"></script>
+    <title>Health Management Webapp</title>
+  </head>
+  <body>
+    <!-- navigation -->
+  <div class="navigation">
+    <ul>
+      <li class="list active">
+        <a href="#">
+          <span class="icon"><i class="fas fa-home"></i></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      
+      <!-- <li class="list">
+        <a href="#">
+          <span class="icon"><i class="fas fa-hospital"></i></span>
+          <span class="title">Hospitals near me</span>
+        </a>
+      </li> -->
+      
+      <li class="list">
+        <a href="#">
+          <span class="icon"><i class="fas fa-calendar-check"></i></span>
+          <span class="title">Appointment</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon"><i class="fas fa-utensils"></i></span>
+          <span class="title">Diet Tracker</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon"><i class="fas fa-user-cog"></i></span>
+          <span class="title">Edit Profile</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="#">
+          <span class="icon"><i class="far fa-question-circle"></i></span>
+          <span class="title">Help</span>
+        </a>
+      </li>
+      <li class="list">
+        <a href="/auth/logout">
+          <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+          <span class="title">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div> 
+  <!-- end of navigation -->
+
+    <!-- wrapper -->
+    <div class="wrapper">
+      <!-- search starts -->
+      <div class="search">
+        <div class="logo">
+            <i class="fas fa-2x fa-laptop-medical"></i>
+        </div>
+        <form class="search-form d-flex">
+          <label>
+            <button type="submit" class="searchButton">
+              <i class="fa fa-lg fa-search"></i>
+            </button>
+            <input type="search" id="site-search" class="search-input" placeholder="Global Search" autocomplete="on"/>
+          </label>
+        </form>
+      </div>
+      <!-- search ends -->
+
+      <!-- mainBlock starts -->
+      
+      <div class="main">
+        <!-- first block -->
+        <div class="first">
+          <!-- task-calendar block -->
+          <div class="task-calendar">
+            <!-- task header -->
+            <div class="taskhead">
+              <!-- details -->
+              <div class="user">
+                <h2>Hello, <%= foundUser.displayName%></h2>
+              </div>
+              <!-- end of details -->
+            </div>
+            <!-- taskhead ends -->
+
+            <!-- task-block -->
+            <div class="task-block">      <!-- ----------- -->
+              <div class="column2">
+                <div class="mednaam">
+                  <form action="/dashboard" method="POST" id="myform">
+                    <h2>Medicine Schedule</h2> <br>
+                    <div class="one-row">
+                      <input type="text" id="medname" name="Medicine_name" placeholder="Medicine name">
+                      <input type="text" id="timing" name="medicine_time" placeholder="before/after eating">
+                      <input type="text" id="frequency" name="medicine_freq" placeholder="Times a day">
+                   </div>
+                  <button type="submit" class="addMed">Add Medicines</button>
+                  </form>
+                </div>
+                <div class="medlist">
+                  <h2>Medicine List</h2>
+                  <!-- <div class="medtable"> -->
+                    <table id="MEDicines">
+                      <thead>
+                        <tr>
+                          <th>Medicine name</th>
+                          <th>Timing</th>
+                          <th>Frequency</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%for(var i=0;i<MEDICINES.length; i++){%>
+                          <tr class="text-center align-middle">
+                            <td><%= MEDICINES[i] %></td>
+                            <td><%= TIMES[i] %></td>
+                            <td><%= FREQ[i] %></td>
+                            <td><button class="btn btn-danger btn-sm del_row" onclick="Delete(this)"><i class="fas fa-trash"></i></button></td>
+                          </tr>
+                        <% } %>
+                      </tbody>
+                    </table>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+            <!-- task-block ends-->
+          </div>
+          <!-- task-calendar block ends -->
+        </div>
+        <!-- first block ends -->
+
+        <!-- second block -->
+        <div class="second d-flex">
+          <!-- deals block ends-->
+
+          <!-- task-graph block -->
+          <div class="task">
+            <div class="panelHeader d-flex">
+              <i class="fas fa-calendar-plus"></i><span class="calendar">&nbsp; Calendar</span>
+              <div class="wrapper_calender">
+                <div id="calendari"></div>
+              </div>              
+            </div>
+            <div class="illu">
+              <img src="/undraw_fitness_stats_sht6.png">
+            </div>
+
+            <!-- panelHeader -->
+          </div>
+          <!-- task-graph block ends-->
+        </div>
+        <!-- second block ends -->
+      </div>
+      <!--      main ends -->
+    </div>
+    <!-- wrapper -->
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js">
+    </script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js">
+    </script>
+    <!-- <script src="med-sched.js"></script> -->
+    <!-- <script src="preloader.js"></script> -->
+    
+  </body>
+  <script src="/navigation.js"></script>
+  <script src="/Calender_dash.js"></script>
+  <script>
+    function Delete(x){
+      x.parentElement.parentElement.remove();
+      // console.log(x.parentElement);
+    }
+  </script>
+</html>
