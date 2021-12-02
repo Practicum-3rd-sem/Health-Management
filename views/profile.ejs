@@ -79,16 +79,16 @@
                         <img src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
                           <h4>
-                            <%if(userDetails.length > 0) {%>
+                            <%if(userDetails) {%>
                             <% if( foundUser.displayName) { %>
                               <p><%= foundUser.displayName%></p>
                             <% }%>
                           </h4>
                           <h4>
-                            <% if( userDetails[0].mail=== "" ) { %>
+                            <% if( !userDetails ) { %>
                               <p>username@gmail.com</p>
                             <% }else{ %>
-                                <p> <%= userDetails[0].mail %></p>
+                                <p> <%= userDetails.mail %></p>
                             <% } %>
                             <% } %>
                           </h4>
@@ -155,38 +155,38 @@
                     <div class="data">
                       <div class="weight">
                         <span>Weight(in Kg)</span> <br><br><br><br>
-                        <%if(userDetails.length > 0) {%>
-                        <%= userDetails[0].weight %>
+                        <%if(userDetails) {%>
+                        <%= userDetails.weight %>
                         <% } %>
                       </div>
                       <div class="height">
                         <span>Height(in cm)</span><br><br><br><br>
-                        <%if(userDetails.length > 0) {%>
-                        <%= userDetails[0].height %>
+                        <%if(userDetails) {%>
+                        <%= userDetails.height %>
                         <% } %>
                       </div>
                       <div class="bloodgrp">
                         <span>Blood Group</span><br><br><br><br>
-                        <%if(userDetails.length > 0) {%>
-                        <%= userDetails[0].bg %>
+                        <%if(userDetails) {%>
+                        <%= userDetails.bg %>
                         <% } %>
                       </div>
                       <div class="bmi">
                         <span>BMI</span><br><br><br><br>
-                        <%if(userDetails.length > 0) {%>
-                        <%= userDetails[0].BMI %>
+                        <%if(userDetails) {%>
+                        <%= userDetails.BMI %>
                         <% } %>
                       </div>
                       <div class="bmi_status">
                         <span>Weight Status</span><br><br><br><br>
-                        <%if(userDetails.length > 0) {%>
-                        <%if(userDetails[0].BMI<18.5){%>
+                        <%if(userDetails) {%>
+                        <%if(userDetails.BMI<18.5){%>
                           Underweight
-                        <%} else if(userDetails[0].BMI>=18.5 && userDetails[0].BMI<=24.9){%>
+                        <%} else if(userDetails.BMI>=18.5 && userDetails.BMI<=24.9){%>
                           Healthy
-                        <%} else if(userDetails[0].BMI>=25 && userDetails[0].BMI<=29.9){%>
+                        <%} else if(userDetails.BMI>=25 && userDetails.BMI<=29.9){%>
                           OverWeight
-                        <%} else if(userDetails[0].BMI>=30){%>
+                        <%} else if(userDetails.BMI>=30){%>
                           Obese
                         <%}%>      
                         <% } %>                    

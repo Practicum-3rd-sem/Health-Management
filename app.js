@@ -108,27 +108,44 @@ app.post("/profile", async(request,response) =>{
   gen=request.body.gender;
   BMI=(weight*100*100)/(height*height); 
   BMI=BMI.toFixed(1); 
+
+  console.log("profile",mobile)
   const Founduser = request.user;
+  try{    
+    const user = await User.findById(Founduser.id)
+  
+  if(user){
+    user.displayName = name;
+    // user.userDetails.mobile = mobile;
+    // user.userDetails.bg = bg;
+    // user.userDetails.address = address;
+    // user.userDetails.weight = weight;
+    // user.userDetails.height = height;
+    // user.userDetails.gen = gen;
+    // user.userDetails.BMI = BMI;
+    // user.userDetails.mail = mail;
 
-  const user = await User.findById(Founduser.id)
-
-if(user){
-  user.displayName = name;
-  user.userDetails[0].mobile = mobile;
-  user.userDetails[0].bg = bg;
-  user.userDetails[0].address = address;
-  user.userDetails[0].weight = weight;
-  user.userDetails[0].height = height;
-  user.userDetails[0].gen = gen;
-  user.userDetails[0].BMI = BMI;
-  user.userDetails[0].mail = mail;
-
-  await user.save();
-  // res.status(200).redirect("/dashboard");
-  response.redirect("/profile");
-}else{
-  res.status(404).send("User not found");
-}
+    var d ={
+      weight,
+      height,
+      gen,
+      BMI,
+      bg,
+      address,
+      mail,
+      mobile
+    }
+    user.userDetails = d;
+    await user.save();
+    // res.status(200).redirect("/dashboard");
+    response.redirect("/profile");
+  }else{
+    res.status(404).send("User not found");
+  }
+  }catch(err){
+    console.error(err);
+    response.status(500).send("Server Error");
+  }
 
 });
 

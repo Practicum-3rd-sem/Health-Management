@@ -71,8 +71,7 @@ const UserSchema = new mongoose.Schema({
       }
     }
   ],
-  userDetails: [
-    {
+  userDetails: {
       weight:{
         type: Number,
         required: true,
@@ -105,8 +104,7 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true,
       }
-    }
-  ]
+  }
 });
 
 module.exports = mongoose.model("User", UserSchema);
