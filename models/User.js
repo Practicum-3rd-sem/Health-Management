@@ -43,7 +43,7 @@ const UserSchema = new mongoose.Schema({
   appointments: [
     {
       Date:{
-        type: Date,
+        type: String,
         required: true,
       },
     Description:{
