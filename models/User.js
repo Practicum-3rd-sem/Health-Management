@@ -30,83 +30,83 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
-      time:{
+      time: {
         type: String,
         required: true,
       },
-      freq:{
+      freq: {
         type: Number,
         required: true,
-      }
-    }
+      },
+    },
   ],
   appointments: [
     {
-      Date:{
-        type: Date,
+      Date: {
+        type: String,
         required: true,
       },
-    Description:{
+      Description: {
         type: String,
         required: true,
-    },
-    Start_time:{
+      },
+      Start_time: {
         type: String,
         required: true,
-    },
-    End_time:{
+      },
+      End_time: {
         type: String,
-    }
-    }
+      },
+    },
   ],
   meals: [
     {
-      food:{
+      food: {
         type: String,
         required: true,
       },
-      calories:{
+      calories: {
         type: Number,
         required: true,
-      }
-    }
+      },
+    },
   ],
   userDetails: [
     {
-      weight:{
+      weight: {
         type: Number,
         required: true,
       },
-      height:{
+      height: {
         type: Number,
         required: true,
       },
-      mobile:{
+      mobile: {
         type: String,
         required: true,
       },
-      mail:{
+      mail: {
         type: String,
         required: true,
       },
-      bg:{
+      bg: {
         type: String,
         required: true,
       },
-      address:{
+      address: {
         type: String,
         required: true,
       },
-      gen:{
+      gen: {
         type: String,
         required: true,
       },
-      BMI:{
+      BMI: {
         type: Number,
         required: true,
-      }
-    }
-  ]
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", UserSchema);
