@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   font-family: "Nunito", sans-serif !important;
-  color: rgb(30, 4, 71) !important;
+  /* color: white !important; */
 }
 
 body {
@@ -13,7 +13,28 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
-  background: rgb(194, 222, 238);
+  background: radial-gradient(
+      circle at 17% 77%,
+      rgba(17, 17, 17, 0.04) 0%,
+      rgba(17, 17, 17, 0.04) 50%,
+      rgba(197, 197, 197, 0.04) 50%,
+      rgba(197, 197, 197, 0.04) 100%
+    ),
+    radial-gradient(
+      circle at 26% 17%,
+      rgba(64, 64, 64, 0.04) 0%,
+      rgba(64, 64, 64, 0.04) 50%,
+      rgba(244, 244, 244, 0.04) 50%,
+      rgba(244, 244, 244, 0.04) 100%
+    ),
+    radial-gradient(
+      circle at 44% 60%,
+      rgba(177, 177, 177, 0.04) 0%,
+      rgba(177, 177, 177, 0.04) 50%,
+      rgba(187, 187, 187, 0.04) 50%,
+      rgba(187, 187, 187, 0.04) 100%
+    ),
+    linear-gradient(19deg, rgb(28, 117, 250), rgb(34, 2, 159));
   background-size: cover;
   font-size: 120%;
   text-align: center;
@@ -86,23 +107,35 @@ li {
   padding: 2vh;
   color: white;
 }
-
-.back:hover{
-  cursor: pointer !important;
-  color: white !important;
-  background-color: darkblue !important;
-}
-.back{
-  display: grid;
-  place-content: center;
-  z-index: 2;
-  width: 4vw; 
-  height: 4vh !important; 
-  font-size: medium; 
-  position: absolute !important;
-  text-decoration: none;
-  top: 20px !important;
-  left: 30px !important;
-  border-radius: 2px;
+#submit {
+  color: darkblue !important;
+  background-color: rgb(122, 191, 231) !important;
   transition: 1s ease;
+}
+#submit:hover {
+  background-color: darkblue !important;
+  color: rgb(122, 191, 231) !important;
+}
+.back {
+  /* display: grid;
+  place-content: center; */
+  z-index: 2;
+  /* width: 4vw; */
+  /* height: auto; */
+  font-size: 1.25rem;
+  position: relative !important;
+  text-decoration: none;
+  background: rgb(122, 191, 231);
+  /* top: 20px !important; */
+  /* left: 30px !important; */
+  border-radius: 5px;
+  transition: 1s ease;
+  padding: 1vh 1vw;
+  color: darkblue !important;
+  /* display: block; */
+}
+.back:hover {
+  cursor: pointer !important;
+  color: rgb(122, 191, 231) !important;
+  background-color: darkblue !important;
 }

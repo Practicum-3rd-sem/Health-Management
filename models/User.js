@@ -3,19 +3,15 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   googleId: {
     type: String,
-    required: true,
   },
   displayName: {
     type: String,
-    required: true,
   },
   firstName: {
     type: String,
-    required: true,
   },
   lastName: {
     type: String,
-    required: true,
   },
   image: {
     type: String,
@@ -28,83 +24,68 @@ const UserSchema = new mongoose.Schema({
     {
       medname: {
         type: String,
-        required: true,
       },
-      time:{
+      time: {
         type: String,
-        required: true,
       },
-      freq:{
+      freq: {
         type: Number,
-        required: true,
-      }
-    }
+      },
+    },
   ],
   appointments: [
     {
       Date: {
         type: String,
-        required: true,
       },
       Description: {
         type: String,
-        required: true,
-    },
-    Start_time:{
+      },
+      Start_time: {
         type: String,
-        required: true,
-    },
-    End_time:{
+      },
+      End_time: {
         type: String,
-    }
-    }
+      },
+    },
   ],
   meals: [
     {
-      food:{
+      food: {
         type: String,
-        required: true,
       },
-      calories:{
+      calories: {
         type: Number,
-        required: true,
-      }
-    }
+      },
+    },
   ],
   userDetails: {
-      weight:{
-        type: Number,
-        required: true,
-      },
-      height:{
-        type: Number,
-        required: true,
-      },
-      mobile:{
-        type: String,
-        required: true,
-      },
-      mail:{
-        type: String,
-        required: true,
-      },
-      bg:{
-        type: String,
-        required: true,
-      },
-      address:{
-        type: String,
-        required: true,
-      },
-      gen:{
-        type: String,
-        required: true,
-      },
-      BMI:{
-        type: Number,
-        required: true,
-      }
-  }
+    weight: {
+      type: Number,
+    },
+    height: {
+      type: Number,
+    },
+    mobile: {
+      type: String,
+    },
+    mail: {
+      type: String,
+    },
+    bg: {
+      type: String,
+    },
+    address: {
+      type: String,
+    },
+    gen: {
+      type: String,
+    },
+    BMI: {
+      type: Number,
+    },
+  },
 });
 
 module.exports = mongoose.model("User", UserSchema);
+//REQUIRED: TRUE IS GIVING ERROR WITH USERS TRYING TO LOGIN FIRST TIME
