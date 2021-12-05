@@ -1,0 +1,108 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif !important;
+  color: rgb(30, 4, 71) !important;
+}
+
+body {
+  font-family: "Nunito", sans-serif !important;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: rgb(194, 222, 238);
+  background-size: cover;
+  font-size: 120%;
+  text-align: center;
+  color: bkack !important;
+  /* background: url(./diseases.jpg) no-repeat center center fixed;
+  background-size: cover; */
+}
+h1 {
+  font-size: 3rem;
+  color: white;
+  position: relative;
+  top: 0;
+  margin: auto;
+}
+#form {
+  max-width: 700px;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: auto;
+}
+
+.form-field {
+  display: flex;
+  margin: 0 0 1rem 0;
+}
+
+label,
+input {
+  width: 70%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+label {
+  text-align: right;
+  width: 30%;
+  font-size: 2rem;
+  color: white;
+}
+input {
+  border: 2px solid #aaa;
+  border-radius: 2px;
+}
+input#submit {
+  margin: 2vw;
+  width: 10rem;
+}
+ul {
+  list-style-type: none;
+  /* max-width: 350px; */
+  border-radius: 10px;
+  /* height: auto; */
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: auto;
+}
+li {
+  /* width: 100%; */
+  background-color: #fcfcfc3b;
+  /* font-size: 25px; */
+  margin: 7px 0px;
+  /* padding: 5px; */
+  height: auto;
+  text-align: center;
+  padding: 2vh;
+  color: white;
+}
+
+.back:hover{
+  cursor: pointer !important;
+  color: white !important;
+  background-color: darkblue !important;
+}
+.back{
+  display: grid;
+  place-content: center;
+  z-index: 2;
+  width: 4vw; 
+  height: 4vh !important; 
+  font-size: medium; 
+  position: absolute !important;
+  text-decoration: none;
+  top: 20px !important;
+  left: 30px !important;
+  border-radius: 2px;
+  transition: 1s ease;
+}

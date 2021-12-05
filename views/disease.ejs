@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Data</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&amp;family=Poppins:wght@400;500;600&amp;display=swap">
+    <link rel="stylesheet" href="/disease.css">
+    <!-- <link rel="stylesheet" href=".//Navigation_bar.css"> -->
+
+
+  </head>
+  <body>
+      <a href="/dashboard" class="back">⬅ Back</a>
+      <h1>
+      Get List of Diseases by entering the body part you want to search for.
+    </h1>
+    <section>
+      <label for="full-name">Body Part: </label>
+      <input
+        type="text"
+        name="body_part"
+        id="body_part"
+        placeholder="Body Part"
+        required
+      />
+      <input type="submit" value="Show Data" id="submit" onclick="data()" />
+    </section>
+    <ul id="myList">
+      <li><h1>DISEASES:</h1></li>
+    </ul>
+
+
+    <script>
+      var diseases = [];
+      var myList = document.getElementById("myList");
+      function data() {
+        myList.innerHTML = "";
+        var body_part = document.getElementById("body_part").value;
+        fetch(`https://healthwise.p.rapidapi.com/body/diseases/${body_part}`, {
+          method: "GET",
+          credentials: "omit",
+          headers: {
+            "x-rapidapi-host": "healthwise.p.rapidapi.com",
+            "x-rapidapi-key":
+              "1c3194eaacmsh0679b7666062122p115ac7jsn58ae6ac30aa6",
+          },
+        })
+          .then((response) => {
+            response
+              .json()
+              .then((res) => {
+                var i = res.data.result[0].causes.length;
+                for (var j = 0; j < i; j++) {
+                  console.log(res.data.result[0].causes[j].illness);
+                  diseases.push(res.data.result[0].causes[j].illness);
+                  var node = document.createElement("LI");
+                  var textnode = document.createTextNode(
+                    res.data.result[0].causes[j].illness
+                  );
+                  node.appendChild(textnode);
+                  myList.appendChild(node);
+                }
+              })
+              .catch((err) => {
+                var node = document.createElement("LI");
+                var textnode = document.createTextNode("No Diseases Found");
+                node.appendChild(textnode);
+                myList.appendChild(node);
+              });
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+    </script>
+
+  </body>
+</html>
