@@ -148,6 +148,7 @@ app.post("/profile", async (request, response) => {
 });
 
 app.get("/profile", function (request, response) {
+  console.log(request);
   const foundUser = request.user;
   response.render("profile", { foundUser, userDetails: foundUser.userDetails });
 });
