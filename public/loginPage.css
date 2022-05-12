@@ -58,7 +58,8 @@ body {
 }
 
 #leftSquare {
-  width: 35%;
+  /* width: 35%; */
+  width: 46%;
   display: block;
   margin: auto;
   border-radius: 20px;
