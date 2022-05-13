@@ -1,4 +1,4 @@
- {
+{
   "name": "project",
   "version": "1.0.0",
   "description": "",
@@ -20,6 +20,7 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "path": "^0.12.7"
   }
 }
