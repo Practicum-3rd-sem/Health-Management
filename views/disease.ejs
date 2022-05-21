@@ -55,10 +55,7 @@
               "1c3194eaacmsh0679b7666062122p115ac7jsn58ae6ac30aa6",
           },
         })
-          .then((response) => {
-            response
-              .json()
-              .then((res) => {
+          .then((response) => {response.json().then((res) => {
                 var i = res.data.result[0].causes.length;
                 for (var j = 0; j < i; j++) {
                   console.log(res.data.result[0].causes[j].illness);
