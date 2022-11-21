@@ -1,3 +1,5 @@
+//jwt login in nodejs?
+
 const User = require("../models/User");
 
 exports.login = async (req, res) => {
@@ -7,5 +9,3 @@ exports.login = async (req, res) => {
   //   console.log(req.user.displayName);
   res.redirect("/dashboard");
 };
-
-
