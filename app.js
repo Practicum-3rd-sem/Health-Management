@@ -229,6 +229,7 @@ app.get("/calorie_tracker", function (req, res) {
 app.get("/disease", function (req, res) {
   res.render("disease.ejs");
 });
+
 // end for disese
 
 app.listen(PORT, console.log(`Server running on ${PORT}`));

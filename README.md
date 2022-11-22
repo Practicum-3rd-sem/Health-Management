@@ -1,3 +1,5 @@
+# Health Management and Appointment WebApp
+
 clone the repo using
 ` git clone https://github.com/Practicum-3rd-sem/Health-Management.git`
 

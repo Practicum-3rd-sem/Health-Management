@@ -1,64 +1,64 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-*{
+* {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: left; 
-    height: 100vh;
-    background-image:url("https://www.wallpapersdsc.net/wp-content/uploads/2016/09/Food-HD-Background.png") !important;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  display: flex;
+  justify-content: left;
+  min-height: 100vh;
+  background: url("https://wallpapercave.com/wp/wp3105346.jpg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
- 
-.center-align{
-      font-size: 35px;
+
+.center-align {
+  font-size: 35px;
 }
-.center{
-    margin: 10px 450px;
+.center {
+  margin: 10px 450px;
 }
- 
-table th{
+
+table th {
   background-color: #326ad1;
-  }
-table tr{
+}
+table tr {
   align-content: center;
 }
-table th,td{
+table th,
+td {
   text-align: center !important;
   padding: 1vw;
-  }
- .icon{
+}
+.icon {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
- }
-.card{
+}
+.card {
   padding: 2vw;
 }
-  /* search style */
-  
-   /* .container{
+/* search style */
+
+/* .container{
         margin-top: 500px;
     }*/
-    .darken-3{
-        margin-left: 20px;
-    }
-    .card-title{
-        margin-left: 20px;;
-    }
-    #item-name{
-        margin-left: 20px;
-    }
-    .modi{
-        margin-left: 20px;
-    }
-    .card{
-        margin-top: 100px;
-        margin: left 350px;
-    }
+.darken-3 {
+  margin-left: 20px;
+}
+.card-title {
+  margin-left: 20px;
+}
+#item-name {
+  margin-left: 20px;
+}
+.modi {
+  margin-left: 20px;
+}
+.card {
+  margin-top: 100px;
+  margin: left 350px;
+}
