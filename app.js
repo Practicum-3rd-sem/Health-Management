@@ -108,7 +108,7 @@ app.post("/profile", async (request, response) => {
   BMI = (weight * 100 * 100) / (height * height);
   BMI = BMI.toFixed(1);
 
-  console.log("profile", mobile);
+  //console.log("profile", mobile);
   const Founduser = request.user;
   try {
     const user = await User.findById(Founduser.id);
@@ -148,7 +148,7 @@ app.post("/profile", async (request, response) => {
 });
 
 app.get("/profile", function (request, response) {
-  console.log(request);
+  //console.log(request);
   const foundUser = request.user;
   response.render("profile", { foundUser, userDetails: foundUser.userDetails });
 });
