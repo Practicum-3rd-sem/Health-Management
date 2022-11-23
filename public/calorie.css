@@ -10,11 +10,15 @@ body {
   display: flex;
   justify-content: left;
   min-height: 100vh;
-  background: url("https://wallpapercave.com/wp/wp3105346.jpg") !important;
+  background: url(./food_bg.jpg) !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 }
-
+::placeholder {
+  color: brown;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
 .center-align {
   font-size: 35px;
 }
@@ -40,6 +44,12 @@ td {
 }
 .card {
   padding: 2vw;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 /* search style */
 
