@@ -15,7 +15,7 @@ p {
   margin: 0;
   padding: 0;
 }
-.user{
+.user {
   margin: 1vw;
   margin-left: 2vw;
   padding: 1vw;
@@ -104,7 +104,7 @@ img {
   font-weight: var(--fWeight500);
 }
 
-.task-calendar{
+.task-calendar {
   display: grid;
   /* grid-template-rows: 1fr 3fr; */
 }
@@ -118,15 +118,15 @@ img {
   flex-direction: column;
   justify-content: space-around;
 }
-.edit{
+.edit {
   float: right;
 }
-.data{
+.data {
   display: grid;
   font-size: smaller;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
-.column1{
+.column1 {
   border-radius: 8px;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06), 0px 6px 18px rgba(0, 0, 0, 0.06);
   height: auto;
@@ -134,7 +134,7 @@ img {
   padding: 2vw;
 }
 
-.column2{
+.column2 {
   margin-top: 5vh;
   border-radius: 8px;
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06), 0px 6px 18px rgba(0, 0, 0, 0.06);
@@ -142,14 +142,14 @@ img {
   font-size: 15px !important;
   padding: 2vw;
 }
-.one-row input{
+.one-row input {
   margin: 1vw;
   width: 12vw;
   padding: 0.8vw;
   border-radius: 7px;
   font-size: medium;
 }
-.addMed{
+.addMed {
   padding: 1vw;
   border-radius: 32px;
   margin: 1vw;
@@ -163,7 +163,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.18);
   text-transform: capitalize;
 }
-.medtable{
+.medtable {
   border-radius: 10px;
 }
 .medtable thead {
@@ -184,19 +184,19 @@ img {
   font-size: medium;
 }
 /* end of table */
-.data div{
-    /* box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06), 0px 6px 18px rgba(0, 0, 0, 0.06); */
-    margin: 10px;
-    height: 100px;
-    
-    font-weight: 600;
-    line-height: 0.8 !important;
+.data div {
+  /* box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06), 0px 6px 18px rgba(0, 0, 0, 0.06); */
+  margin: 10px;
+  height: 100px;
+
+  font-weight: 600;
+  line-height: 0.8 !important;
 }
-.user_data span{
+.user_data span {
   color: rgb(33, 100, 224);
   cursor: pointer;
 }
-.data span{
+.data span {
   color: #707683;
   font-size: 0.9vw !important;
 }
@@ -285,7 +285,8 @@ img {
   padding: 37px 4vw;
   height: 75px;
 }
-#MEDicines td,th{
+#MEDicines td,
+th {
   padding: 1vw !important;
 }
 
@@ -339,7 +340,7 @@ img {
   position: relative;
   border-bottom: 1px solid var(--bordercolor);
 }
-.logo{
+.logo {
   color: blue;
   float: right;
   position: absolute;
@@ -383,7 +384,7 @@ label {
   padding: 0;
   color: #c2cfe0;
 }
-.illu{
+.illu {
   margin-top: 60vh !important;
 }
 /* SCROLLBAR */

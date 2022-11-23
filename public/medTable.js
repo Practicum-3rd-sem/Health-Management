@@ -18,7 +18,7 @@ function createitem(x, y, z) {
                 <td>${z}</td>
                 <td><button onclick="itemdeleter(this)" class="addMed">Done &nbsp;&nbsp;&nbsp;<i class="fas fa-prescription-bottle-alt"></i></button></td>
                 </tr>`;
-  
+
   tasklist.insertAdjacentHTML("beforeend", myhtml);
   medname.value = "";
   timing.value = "";

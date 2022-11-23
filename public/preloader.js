@@ -1,7 +1,7 @@
-var preloader = document.createElement('div');
-var loader = document.createElement('span');
-var loading = document.createElement('i');
-var style = document.createElement('style');
+var preloader = document.createElement("div");
+var loader = document.createElement("span");
+var loading = document.createElement("i");
+var style = document.createElement("style");
 var dot = 0;
 loader.innerHTML = `
 <svg x="0px" y="0px" height="100" viewBox="0 0 298 53.9">
@@ -15,7 +15,7 @@ loader.innerHTML = `
                        l-2.3,4.8H0.5"/>
 </svg>`;
 
-preloader.setAttribute('id', 'preloader');
+preloader.setAttribute("id", "preloader");
 
 style.innerHTML = `
 #preloader{
@@ -32,23 +32,24 @@ style.innerHTML = `
   color: #1200d7bd;
   font-style: italic;
 }`;
-loading.innerHTML = 'loading';
+loading.innerHTML = "loading";
 setInterval(() => {
-    if(dot > 3){
-      dot = 0;
-      loading.innerHTML = "Loading";
-    } else {
-      loading.innerHTML = loading.innerHTML + ".";
-    } dot++;
+  if (dot > 3) {
+    dot = 0;
+    loading.innerHTML = "Loading";
+  } else {
+    loading.innerHTML = loading.innerHTML + ".";
+  }
+  dot++;
 }, 1000);
 preloader.appendChild(loader);
 preloader.appendChild(loading);
 document.body.appendChild(preloader);
 document.body.appendChild(style);
 let stateCheck = setInterval(() => {
-    if (document.readyState === 'complete') {
-      clearInterval(stateCheck);
-      // document.body.removeChild(preloader);
-      // document.body.removeChild(style);
-    }
+  if (document.readyState === "complete") {
+    clearInterval(stateCheck);
+    // document.body.removeChild(preloader);
+    // document.body.removeChild(style);
+  }
 }, 100);
