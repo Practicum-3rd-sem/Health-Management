@@ -207,7 +207,7 @@ app.post("/calorie_tracker", async (req, res) => {
       food,
       calories,
     };
-    sum = sum + calories;
+    sum = sum + +calories;
 
     user.meals.push(d);
 
