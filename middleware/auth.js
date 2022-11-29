@@ -1,3 +1,4 @@
+//middleware to ensure wether user is authenticated before going to that route
 module.exports = {
   ensureAuth: function (req, res, next) {
     if (req.isAuthenticated()) {
