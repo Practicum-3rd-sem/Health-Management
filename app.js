@@ -1,13 +1,21 @@
 const path = require("path");
+// used for building node application
 const express = require("express");
+// mongoose:
 const mongoose = require("mongoose");
+// ejs, templating engine, used to render data to frontend using javascript
 const ejs = require("ejs");
 // const expressLayout = require("express-ejs-layouts");
+//for using secrets, and environment variables
 const dotenv = require("dotenv");
+// middlewares, used in development
 const morgan = require("morgan");
+// passport js google auth
 const passport = require("passport");
+// middleware functions
 const { ensureAuth, ensureGuest } = require("./middleware/auth");
 const { login } = require("./controller/login");
+// storing the user login session in DB
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
@@ -16,12 +24,14 @@ const User = require("./models/User");
 
 dotenv.config({ path: "./config/config.env" });
 
+//connecting to database from ./config/db.js
 connectDB();
 
 const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//comment below line to avoid logs in console
 app.use(morgan("dev"));
 
 app.use(
@@ -39,10 +49,6 @@ app.use(
 // app.use(expressLayout);
 app.set("views", path.join(__dirname, "./views"));
 app.set("view engine", "ejs");
-
-// app.use((req, res) => {
-//   res.status(404).send("<h1>404, Page Not Found</h1>");
-// });
 
 app.use(passport.initialize());
 app.use(passport.session());
