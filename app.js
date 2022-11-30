@@ -58,7 +58,7 @@ const PORT = process.env.PORT || 3000;
 
 var Date, Description, Start_time, End_time;
 
-app.get("/appointment", function (request, response) {
+app.get("/appointment", ensureAuth, function (request, response) {
   var foundUser = request.user;
   response.render("appointment", { appointments: foundUser.appointments });
 });
@@ -153,7 +153,7 @@ app.post("/profile", async (request, response) => {
   }
 });
 
-app.get("/profile", function (request, response) {
+app.get("/profile", ensureAuth, function (request, response) {
   //console.log(request);
   const foundUser = request.user;
   response.render("profile", { foundUser, userDetails: foundUser.userDetails });
@@ -225,14 +225,14 @@ app.post("/calorie_tracker", async (req, res) => {
   // response.redirect("/calorie_tracker");
 });
 
-app.get("/calorie_tracker", function (req, res) {
+app.get("/calorie_tracker", ensureAuth, function (req, res) {
   const foundUser = req.user;
   res.render("calorie", { meals: foundUser.meals, sum: sum });
 });
 // end of calorie
 
 // for disese
-app.get("/disease", function (req, res) {
+app.get("/disease", ensureAuth, function (req, res) {
   res.render("disease.ejs");
 });
 
