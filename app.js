@@ -61,7 +61,7 @@ app.use("/", require("./routes/auth"));
 const PORT = process.env.PORT || 3000;
 
 
-app.get("/appointment", async (request, response) => {
+app.get("/appointment", ensureAuth, async (request, response) => {
   const foundUser = request.user;
   const appointments = foundUser.appointments;
   appointments.sort((a, b) => a.date - b.date);
@@ -118,7 +118,6 @@ app.post("/profile", async (request, response) => {
   BMI = BMI.toFixed(1);
 
   // console.log("profile", mobile);
-  //console.log("profile", mobile);
   const Founduser = request.user;
   try {
     const user = await User.findById(Founduser.id);
