@@ -80,10 +80,7 @@ input {
   border: 2px solid #aaa;
   border-radius: 2px;
 }
-input#submit {
-  margin: 2vw;
-  width: 10rem;
-}
+
 ul {
   list-style-type: none;
   /* max-width: 350px; */
@@ -107,12 +104,17 @@ li {
   padding: 2vh;
   color: white;
 }
-#submit {
+input#submit {
+  margin: 2vw;
+  width: 10rem;
+  border: none;
+  border-radius: 12px;
   color: darkblue !important;
   background-color: rgb(122, 191, 231) !important;
-  transition: 1s ease;
+  transition: 0.7s ease;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06), 0px 6px 18px rgba(0, 0, 0, 0.06);
 }
-#submit:hover {
+input#submit:hover {
   background-color: darkblue !important;
   color: rgb(122, 191, 231) !important;
 }

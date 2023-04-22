@@ -14,7 +14,7 @@
   color: red;
   margin-left: 5px;
 }
-.calendar .card-header{
+.calendar .card-header {
   border-top-left-radius: 10px !important;
   border-top-right-radius: 10px !important;
 }
@@ -22,14 +22,35 @@
   padding: 50px 25px;
   width: 100%;
   border-radius: 10px;
-  background-image: radial-gradient(circle at 17% 77%, rgba(17, 17, 17,0.04) 0%, rgba(17, 17, 17,0.04) 50%,rgba(197, 197, 197,0.04) 50%, rgba(197, 197, 197,0.04) 100%),radial-gradient(circle at 26% 17%, rgba(64, 64, 64,0.04) 0%, rgba(64, 64, 64,0.04) 50%,rgba(244, 244, 244,0.04) 50%, rgba(244, 244, 244,0.04) 100%),radial-gradient(circle at 44% 60%, rgba(177, 177, 177,0.04) 0%, rgba(177, 177, 177,0.04) 50%,rgba(187, 187, 187,0.04) 50%, rgba(187, 187, 187,0.04) 100%),linear-gradient(19deg, rgb(28, 117, 250),rgb(34, 2, 159));
+  background-image: radial-gradient(
+      circle at 17% 77%,
+      rgba(17, 17, 17, 0.04) 0%,
+      rgba(17, 17, 17, 0.04) 50%,
+      rgba(197, 197, 197, 0.04) 50%,
+      rgba(197, 197, 197, 0.04) 100%
+    ),
+    radial-gradient(
+      circle at 26% 17%,
+      rgba(64, 64, 64, 0.04) 0%,
+      rgba(64, 64, 64, 0.04) 50%,
+      rgba(244, 244, 244, 0.04) 50%,
+      rgba(244, 244, 244, 0.04) 100%
+    ),
+    radial-gradient(
+      circle at 44% 60%,
+      rgba(177, 177, 177, 0.04) 0%,
+      rgba(177, 177, 177, 0.04) 50%,
+      rgba(187, 187, 187, 0.04) 50%,
+      rgba(187, 187, 187, 0.04) 100%
+    ),
+    linear-gradient(19deg, rgb(28, 117, 250), rgb(34, 2, 159));
 }
 
 .card-header ul {
   margin: 0;
   padding: 0;
 }
-.this_month{
+.this_month {
   color: rgb(117, 122, 126) !important;
 }
 .card-header ul li {
@@ -38,30 +59,30 @@
   font-weight: 700;
   letter-spacing: 3px;
 }
-#mainCal{
+#mainCal {
   margin-left: 4vw !important;
 }
-form{
+form {
   width: 45vw !important;
 }
-.col{
+.col {
   margin-left: 0.8vw !important;
 }
-#clearappointments button{
+#clearappointments button {
   padding: 1vw;
   border-radius: 30px;
   width: 30vw !important;
   margin-left: -1.7vw;
 }
-.form-row button{
+.form-row button {
   padding: 1vw;
   border-radius: 30px;
   font-size: medium;
 }
-.heading{
+.heading {
   margin-left: -2.2vw;
 }
-#appointment_list th{
+#appointment_list th {
   color: white;
   font-weight: 600;
   font: normal !important;
@@ -69,29 +90,28 @@ form{
   border-style: double;
   padding: 2vw;
 }
-#date2{
+#date2 {
   border-top-left-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
   border-style: none;
   /* border: white; */
 }
-#action
-{
+#action {
   border-top-right-radius: 20px !important;
   border-bottom-right-radius: 20px !important;
   border-style: none !important;
 }
-.apptable th{
+.apptable th {
   width: 30px !important;
 }
 .weekdays {
   margin: 0;
   padding: 10px 0;
 }
-.iconcal{
+.iconcal {
   background-size: 100px;
 }
-.iconapp{
+.iconapp {
   z-index: 1;
   position: absolute;
   float: right;
@@ -125,25 +145,25 @@ form{
 @media screen and (max-width: 720px) {
   .weekdays td,
   .days td {
-     width: 13.1%;
+    width: 13.1%;
   }
 }
 
 @media screen and (max-width: 420px) {
   .weekdays td,
   .days td {
-     width: 12.5%;
+    width: 12.5%;
   }
 
   .days td .active {
-     padding: 2px;
+    padding: 2px;
   }
 }
 
 @media screen and (max-width: 290px) {
   .weekdays td,
   .days td {
-     width: 12.2%;
+    width: 12.2%;
   }
 }
 

@@ -1,13 +1,21 @@
 const path = require("path");
+// used for building node application
 const express = require("express");
+// mongoose:
 const mongoose = require("mongoose");
+// ejs, templating engine, used to render data to frontend using javascript
 const ejs = require("ejs");
 // const expressLayout = require("express-ejs-layouts");
+//for using secrets, and environment variables
 const dotenv = require("dotenv");
+// middlewares, used in development
 const morgan = require("morgan");
+// passport js google auth
 const passport = require("passport");
+// middleware functions
 const { ensureAuth, ensureGuest } = require("./middleware/auth");
 const { login } = require("./controller/login");
+// storing the user login session in DB
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
@@ -17,12 +25,14 @@ const Appointment = require("./models/Appointment");
 
 dotenv.config({ path: "./config/config.env" });
 
+//connecting to database from ./config/db.js
 connectDB();
 
 const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+//comment below line to avoid logs in console
 app.use(morgan("dev"));
 
 app.use(
@@ -108,6 +118,7 @@ app.post("/profile", async (request, response) => {
   BMI = BMI.toFixed(1);
 
   // console.log("profile", mobile);
+  //console.log("profile", mobile);
   const Founduser = request.user;
   try {
     const user = await User.findById(Founduser.id);
@@ -146,8 +157,8 @@ app.post("/profile", async (request, response) => {
   }
 });
 
-app.get("/profile", function (request, response) {
-  // console.log(request);
+app.get("/profile", ensureAuth, function (request, response) {
+  //console.log(request);
   const foundUser = request.user;
   response.render("profile", { foundUser, userDetails: foundUser.userDetails });
 });
@@ -218,14 +229,14 @@ app.post("/calorie_tracker", async (req, res) => {
   // response.redirect("/calorie_tracker");
 });
 
-app.get("/calorie_tracker", function (req, res) {
+app.get("/calorie_tracker", ensureAuth, function (req, res) {
   const foundUser = req.user;
   res.render("calorie", { meals: foundUser.meals, sum: sum });
 });
 // end of calorie
 
 // for disese
-app.get("/disease", function (req, res) {
+app.get("/disease", ensureAuth, function (req, res) {
   res.render("disease.ejs");
 });
 // end for disese
@@ -236,7 +247,7 @@ app.get("/admin", async (req, res) => {
   const upcomingAppointments = await Appointment.find({
     date: { $gte: currentDate },
   }).sort("date");
-  console.log(upcomingAppointments);
+
   res.render("admin.ejs", { appointments: upcomingAppointments });
 });
 

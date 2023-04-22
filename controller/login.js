@@ -7,5 +7,3 @@ exports.login = async (req, res) => {
   //   console.log(req.user.displayName);
   res.redirect("/dashboard");
 };
-
-

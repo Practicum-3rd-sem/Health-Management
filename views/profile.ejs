@@ -84,35 +84,34 @@
 
   <div class="container">
     <div class="main-body">
+      <h2>Edit/Manage Profile</h2>
       <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
           <div class="card user_area p-5">
             <div class="card-body">
-              <p class="d-flex flex-column align-items-center text-center" style="font-size: large; font-weight: 700;">
+              <p class="d-flex flex-column align-items-center text-center"
+                style="font-size: large; font-weight: 700; height: fit-content;">
                 My Details</p> <br>
               <div class="d-flex flex-column align-items-center text-center">
-                <img src="https://www.kindpng.com/picc/m/78-785827_user-profile-avatar-login-account-male-user-icon.png"
-                  alt="Admin" class="rounded-circle" width="150">
-                <div style="font-size: smaller;">
-                  <h4>
-                    <%if(userDetails) {%>
-                      <% if( foundUser.displayName) { %>
-                        <p>
-                          <%= foundUser.displayName%>
-                        </p>
-                        <% }%>
-                  </h4>
-                  <h4>
-                    <% if( !userDetails ) { %>
-                      <p>username@gmail.com</p>
-                      <% }else{ %>
-                        <p>
-                          <%= userDetails.mail %>
-                        </p>
-                        <% } %>
-                          <% } %>
-                  </h4>
-                  <button class="btn btn-outline-primary">Message</button>
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin" class="rounded-circle"
+                  width="150">
+                <div class="details_new">
+
+                  <%if(userDetails) {%>
+                    <% if( foundUser.displayName) { %>
+                      <p>
+                        <%= foundUser.displayName%>
+                      </p>
+                      <% }%>
+
+                        <% if( !userDetails ) { %>
+                          <p>username@gmail.com</p>
+                          <% }else{ %>
+                            <p>
+                              <%= userDetails.mail %>
+                            </p>
+                            <% } %>
+                              <% } %>
                 </div>
               </div>
             </div>
@@ -162,7 +161,7 @@
                 <label for="Height" class="form-label">Height</label>
                 <input type="number" class="form-control" name="Height" autocomplete="off" placeholder="Height in cm">
               </div>
-              <button type="submit" class="btn3 btn-primary edit_button m-3">Save Changes</button>
+              <button type="submit" class="btn btn-primary edit_button m-3">Save Changes</button>
             </form>
           </div>
         </div>

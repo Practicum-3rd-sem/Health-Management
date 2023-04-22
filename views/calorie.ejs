@@ -1,20 +1,25 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <link rel="stylesheet" href="calorie.css">
   <link rel="stylesheet" href="/Navigation_bar.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&amp;family=Poppins:wght@400;500;600&amp;display=swap">
-    <script src="https://kit.fontawesome.com/d8ab0e903f.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&amp;family=Poppins:wght@400;500;600&amp;display=swap">
+  <script src="https://kit.fontawesome.com/d8ab0e903f.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
   <title>Meal & Calorie Tracker</title>
 </head>
+
 <body>
 
-    <!-- navigation -->
+  <!-- navigation -->
   <div class="navigation">
     <ul>
       <li class="list active">
@@ -23,14 +28,14 @@
           <span class="title">Dashboard</span>
         </a>
       </li>
-      
+
       <!-- <li class="list">
         <a href="#">
           <span class="icon"><i class="fas fa-hospital"></i></span>
           <span class="title">Hospitals near me</span>
         </a>
       </li> -->
-      
+
       <li class="list">
         <a href="/appointment">
           <span class="icon"><i class="fas fa-calendar-check"></i></span>
@@ -68,67 +73,90 @@
         </a>
       </li>
     </ul>
-  </div> 
+  </div>
   <!-- end of navigation -->
-  
- 
-  <div class="container">
-    
+
+
+  <div class="container" style="height: min-content;">
+
     <!-- Form Card -->
     <div class="card">
-        <span class="card-title">Add Meal / Food Item</span>
-        <form class="col" action="/calorie_tracker" method="post">
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="text" placeholder="Add Item" id="item-name" name="Item">
-              <label for="item-name" class="modi" style="font-size: large; color: black;">Meal</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="number" placeholder="Add Calories" id="item-calories" name="cal">
-                <label for="item-calories" style="font-size: large; color: black;">Calories</label>
-            </div>
-            <button type="submit" class="add-btn btn blue darken-3"><i class="fa fa-plus"></i> Add Meal</button>         
+      <span class="card-title">Add Meal / Food Item</span>
+      <form class="col" action="/calorie_tracker" method="post">
+        <div class="row">
+          <div class="input-field col s6">
+            <input type="text" placeholder="Add Item" id="item-name" name="Item">
+            <label for="item-name" class="modi" style="font-size: large; color: black;">Meal</label>
           </div>
-        </form>
-    <!-- Calorie Count -->
+          <div class="input-field col s6">
+            <input type="number" placeholder="Add Calories" id="item-calories" name="cal">
+            <label for="item-calories" style="font-size: large; color: black;">Calories</label>
+          </div>
+          <button type="submit" class="add-btn btn blue darken-3"><i class="fa fa-plus"></i> Add
+            Meal</button>
+        </div>
+      </form>
+      <!-- Calorie Count -->
 
-    <h3 class="center-align">Total Calories: <span class="total-calories"><%=sum%></span></h3>
-    <br>
-    
-    <a href="#" class="center clear-btn btn blue" style="width: 200px; margin: 0 0 3vh 25vw;">Clear All</a>
-        
-    <!-- Item List -->
-        <table id="table">
-            <thead>
-                <tr class="text-center align-middle">
-                    <th scope="col" class="text-center align-middle" style="color: white;">Meal</th>
-                    <th scope="col" class="text-center align-middle" style="color: white;">Calories</th>
-                    <th scope="col" class="text-center align-middle" style="color: white;">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-              <%if(meals.length > 0) {%>
-                <%for(var i=0;i<meals.length; i++){%>
-                    <tr class="text-center align-middle">
-                        <td><%=meals[i].food%></td>
-                        <td><%=meals[i].calories%></td>
-                        <td><button type="button" value="Delete" class="delete" onclick="Delete(this)"><i class="fas fa-trash"></i></button></td>
-                    </tr>
+      <!-- <h3 class="center-align">Total Calories: <span class="total-calories">
+          <%=sum%>
+        </span></h3>
+      <br> -->
+
+      <a href="#" class="center clear-btn btn blue" style="width: 200px; margin: 0 0 3vh 25vw;">Clear All</a>
+
+      <!-- Item List -->
+      <table id="table">
+        <thead>
+          <tr class="text-center align-middle">
+            <th scope="col" class="text-center align-middle" style="color: white;">Meal</th>
+            <th scope="col" class="text-center align-middle" style="color: white;">Calories</th>
+            <th scope="col" class="text-center align-middle" style="color: white;">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <%if(meals.length> 0) {%>
+            <%for(var i=0;i<meals.length; i++){%>
+              <tr class="text-center align-middle">
+                <td>
+                  <%=meals[i].food%>
+                </td>
+                <td>
+                  <%=meals[i].calories%>
+                </td>
+                <td><button type="button" value="Delete" class="delete" onclick="Delete(this)"><i
+                      class="fas fa-trash"></i></button></td>
+              </tr>
+              <%}%>
                 <%}%>
-                <%}%>
-            </tbody>
-        </table>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>    
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   <script src="/navigation.js"></script>
   <script>
-    function Delete(x){
+    function Delete(x) {
       x.parentElement.parentElement.remove();
     }
+    var tableBody = document.getElementById("tbody")
+    var tr = tableBody.getElementsByTagName("tr")
+    //  console.log(tr)
+    var i = tr.length
+    var sum = 0;
+    for (var j = 0; j < i; j++) {
+      var x = tr[j].children[1];
+      sum += +x.textContent
+    }
+    //console.log(sum)
+    const html = `<tr><td><b>Total Calories</b></td><td><strong style="color:red">${sum}</strong></td></tr>`
+    tableBody.insertAdjacentHTML("beforeend", html)
+
   </script>
 </body>
+
 </html>
