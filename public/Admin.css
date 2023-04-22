@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.adminContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation{
+    position: absolute;
+    left: 0;
+}
+
+.wrapper{
+    display: block;
+    max-height: 70%;
+    width: 75vw;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    overflow-y: scroll;
+}
+
+.heading{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    font-family: 'Montserrat', sans-serif;
+}
+.heading h1{
+    font-size: 55px;
+}
+
+#appointment_list{
+    width: 100%;
+    border: none;
+}
+
+#appointment_list th{
+    color: white;
+    font-weight: 600;
+    font: normal !important;
+    background-color: rgb(27, 97, 228) !important;
+    border-style: double;
+    padding: 2vw;
+}
+#appointment_list td{
+    overflow: scroll;
+}
+#appointment_list td::-webkit-scrollbar{
+    display: none;
+}
+#date2{
+border-top-left-radius: 20px !important;
+border-bottom-left-radius: 20px !important;
+border-style: none !important;
+/* border: white; */
+}
+#action
+{
+border-top-right-radius: 20px !important;
+border-bottom-right-radius: 20px !important;
+border-style: none !important;
+}

@@ -9,7 +9,7 @@ body {
   text-rendering: optimizeSpeed;
   margin: 0;
   padding: 0;
-  font: 400 1.8vh/1.5 "Poppins", sans-serif;
+  /* font: 400 1.8vh/1.5 "Poppins", sans-serif; */
 }
 p {
   margin: 0;
