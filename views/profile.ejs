@@ -176,37 +176,37 @@
             <div class="weight">
               <span>Weight(in Kg)</span> <br><br><br><br>
               <%if(userDetails) {%>
-                <%= userDetails.weight %>
+                <%= userDetails[0].weight %>
                   <% } %>
             </div>
             <div class="height">
               <span>Height(in cm)</span><br><br><br><br>
               <%if(userDetails) {%>
-                <%= userDetails.height %>
+                <%= userDetails[0].height %>
                   <% } %>
             </div>
             <div class="bloodgrp">
               <span>Blood Group</span><br><br><br><br>
               <%if(userDetails) {%>
-                <%= userDetails.bg %>
+                <%= userDetails[0].bg %>
                   <% } %>
             </div>
             <div class="bmi">
               <span>BMI</span><br><br><br><br>
               <%if(userDetails) {%>
-                <%= userDetails.BMI %>
+                <%= userDetails[0].BMI %>
                   <% } %>
             </div>
             <div class="bmi_status">
               <span>Weight Status</span><br><br><br><br>
               <%if(userDetails) {%>
-                <%if(userDetails.BMI<18.5){%>
+                <%if(userDetails[0].BMI<18.5){%>
                   Underweight
-                  <%} else if(userDetails.BMI>=18.5 && userDetails.BMI<=24.9){%>
+                  <%} else if(userDetails[0].BMI>=18.5 && userDetails[0].BMI<=24.9){%>
                       Healthy
-                      <%} else if(userDetails.BMI>=25 && userDetails.BMI<=29.9){%>
+                      <%} else if(userDetails[0].BMI>=25 && userDetails[0].BMI<=29.9){%>
                           OverWeight
-                          <%} else if(userDetails.BMI>=30){%>
+                          <%} else if(userDetails[0].BMI>=30){%>
                             Obese
                             <%}%>
                               <% } %>

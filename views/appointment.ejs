@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Appointment.css">
-    <link rel="stylesheet" href="/Navigation_bar.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
-    <title>Appointment</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Appointment.css">
+  <link rel="stylesheet" href="/Navigation_bar.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js"></script>
+  <title>Appointment</title>
 </head>
+
 <body>
-     <!-- navigation -->
   <div class="navigation">
     <ul>
       <li class="list active">
@@ -28,14 +30,14 @@
           <span class="title">Dashboard</span>
         </a>
       </li>
-      
+
       <!-- <li class="list">
         <a href="#">
           <span class="icon"><i class="fas fa-hospital"></i></span>
           <span class="title">Hospitals near me</span>
         </a>
       </li> -->
-      
+
       <li class="list">
         <a href="/appointment">
           <span class="icon"><i class="fas fa-calendar-check"></i></span>
@@ -73,129 +75,141 @@
         </a>
       </li>
     </ul>
-  </div> 
+  </div>
   <!-- end of navigation -->
-    <br><br>
-    <div class="container">
-        <br>
-        <div class="row">
-            <div class="calendar col-md-8 offset-md-2" id="mainCal">
-                <div>
-                  <div class="card-header">
-                        <ul>
-                            <li id="month" class="text-white text-uppercase text-center">
-                            </li>
-                            <li id="year" class="text-white text-uppercase text-center">
-                            </li>
-                        </ul>
-                    </div>
-                    <table class="table calendar table-bordered table-responsive-sm" id="calendar">
-                        <thead>
-                            <tr class="weekdays bg-dark">
-                              <th scope="col" class="text-white text-center">Mo</th>
-                              <th scope="col" class="text-white text-center">Tu</th>
-                              <th scope="col" class="text-white text-center">We</th>
-                              <th scope="col" class="text-white text-center">Th</th>
-                              <th scope="col" class="text-white text-center">Fr</th>
-                              <th scope="col" class="text-white text-center">Sa</th>
-                              <th scope="col" class="text-white text-center">Su</th>
-                            </tr>
-                          </thead>
-                        <tbody class="days bg-light" id="days"></tbody>
-                        <tfoot></tfoot>
-                    </table>
-                </div>
-            </div>
-        </div>
+  <br><br>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="calendar col-md-8 offset-md-2" id="mainCal">
         <div>
-          <p class="ml-5 pl-4 this_month">The appointments are for the current month only</p>
+          <div class="card-header">
+            <ul>
+              <li id="month" class="text-white text-uppercase text-center">
+              </li>
+              <li id="year" class="text-white text-uppercase text-center">
+              </li>
+            </ul>
+          </div>
+          <table class="table calendar table-bordered table-responsive-sm" id="calendar">
+            <thead>
+              <tr class="weekdays bg-dark">
+                <th scope="col" class="text-white text-center">Mo</th>
+                <th scope="col" class="text-white text-center">Tu</th>
+                <th scope="col" class="text-white text-center">We</th>
+                <th scope="col" class="text-white text-center">Th</th>
+                <th scope="col" class="text-white text-center">Fr</th>
+                <th scope="col" class="text-white text-center">Sa</th>
+                <th scope="col" class="text-white text-center">Su</th>
+              </tr>
+            </thead>
+            <tbody class="days bg-light" id="days"></tbody>
+            <tfoot></tfoot>
+          </table>
         </div>
-        <!-- <div class="iconapp">
+      </div>
+    </div>
+    <div>
+      <p class="ml-5 pl-4 this_month">The appointments are for the current month only</p>
+    </div>
+    <!-- <div class="iconapp">
           <img src="undraw_Calendar_re_ki49.png" class="iconcal">
         </div> -->
-        <br>
-        <div class="col" >
-            <div class="col offset-md-1">
-                <form id="form_create_appointment" method="POST" action="/appointment">
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <label class="required">Date</label>
-                            <input class="form-control date-input" name="date" id="date" data-trigger="hover" data-toggle="popover" title="Date" data-content="You can select any date from today clicking on the number in the calendar" required>
-                        </div>
-                        <div class="col form-group">
-                            <label>Description of problem</label>
-                            <input class="form-control" type="text" id="description" name="description">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <label class="required">Start Time</label>
-                            <input class="form-control time-input" type="text" name="start_time" id="start_time" required>
-                        </div>
-                        <div class="col form-group">
-                            <label class="required">End Time</label>
-                            <input class="form-control time-input" type="text" id="end_time" name="end_time" required>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <button type="reset" class="btn btn-warning btn-block" id="clear" >Clear Form</button>
-                        </div>
-                        <div class="col form-group">
-                            <button type="submit" class="btn btn-primary btn-block" id="submit">Make Appointment</button>
-                        </div>
-                    </div>
-                </form>
+    <br>
+    <div class="col">
+      <div class="col offset-md-1">
+        <form id="form_create_appointment" method="POST" action="/appointment">
+          <div class="form-row">
+            <div class="col form-group">
+              <label class="required">Date</label>
+              <input class="form-control date-input" name="date" id="date" data-trigger="hover" data-toggle="popover"
+                title="Date" data-content="You can select any date from today clicking on the number in the calendar"
+                required>
             </div>
-            <div class="col offset-md-1">
-                <div class="col">
-                    <div class="col">
-                      <br> <br>
-                        <h3 class="heading">Appointments</h3>
-                    </div>
-                </div>
-                  <table class="table table-bordered table-hover table-striped" id="appointment_list">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="text-center align-middle" id="date2">Date</th>
-                            <th scope="col" class="text-center align-middle">Description</th>
-                            <th scope="col" class="text-center align-middle">Start time</th>
-                            <th scope="col" class="text-center align-middle">End time</th>
-                            <th scope="col" class="text-center align-middle" id="action">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <%if(appointments.length > 0) {%>
-                        <% for(var i=0;i<appointments.length;i++) { %>
-                          <tr class="text-center align-middle">
-                            <td id="date2"><%= appointments[i].Date %></td>
-                            <td><%= appointments[i].Description %></td>
-                            <td><%= appointments[i].Start_time %></td>
-                            <td><%= appointments[i].End_time %></td>
-                            <td>
-                              <button class="btn btn-danger btn-sm" onclick="Delete(this)"><i class="fas fa-trash"></i></button>
-                            </td>
-                          </tr>
-                        <% } %>
-                        <% } %>
-                    </tbody>
-                </table>
-                <br><br>
-                <div class="col form-group" id="clearappointments">
-                  <button type="button" class="btn btn-danger btn-block" id="btn_clear_storage" onclick="clear_storage()">Clear All Appointments</button>
-              </div>
+            <div class="col form-group">
+              <label>Description of problem</label>
+              <input class="form-control" type="text" id="description" name="description">
             </div>
+          </div>
+          <div class="form-row">
+            <div class="col form-group">
+              <label class="required">Start Time</label>
+              <input class="form-control time-input" type="text" name="start_time" id="start_time" required>
+            </div>
+            <div class="col form-group">
+              <label class="required">End Time</label>
+              <input class="form-control time-input" type="text" id="end_time" name="end_time" required>
+            </div>
+          </div>
+          <br><br>
+          <div class="form-row">
+            <div class="col form-group">
+              <button type="reset" class="btn btn-warning btn-block" id="clear">Clear Form</button>
+            </div>
+            <div class="col form-group">
+              <button type="submit" class="btn btn-primary btn-block" id="submit">Make Appointment</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col offset-md-1">
+        <div class="col">
+          <div class="col">
+            <br> <br>
+            <h3 class="heading">Appointments</h3>
+          </div>
         </div>
-        <br><br><br>
+        <table class="table table-bordered table-hover table-striped" style="border:none;" id="appointment_list">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center align-middle" id="date2">Date</th>
+              <th scope="col" class="text-center align-middle">Description</th>
+              <th scope="col" class="text-center align-middle">Start time</th>
+              <th scope="col" class="text-center align-middle">End time</th>
+              <th scope="col" class="text-center align-middle" id="action">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%if(appointments.length> 0) {%>
+              <% for(var i=0;i<appointments.length;i++) { %>
+                <tr class="text-center align-middle">
+                  <td id="date2">
+                    <%= appointments[i].date %>
+                  </td>
+                  <td style="max-width:25vw ; text-overflow: ellipsis;">
+                    <%= appointments[i].description %>
+                  </td>
+                  <td>
+                    <%= appointments[i].start_time %>
+                  </td>
+                  <td>
+                    <%= appointments[i].end_time %>
+                  </td>
+                  <td id="action">
+                    <button class="btn btn-danger btn-sm" onclick="Delete(this)"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <% } %>
+                  <% } %>
+          </tbody>
+        </table>
+        <br><br>
+        <div class="col form-group" id="clearappointments">
+          <button type="button" class="btn btn-danger btn-block" id="btn_clear_storage" onclick="clear_storage()">Clear
+            All Appointments</button>
+        </div>
+      </div>
     </div>
-    <script src="/Appointment.js"></script>
-    <script src="/navigation.js"></script>
-    <script>
-      function Delete(x){
-        x.parentElement.parentElement.remove();
-        // console.log(x.parentElement);
-      }
-    </script>
+    <br><br><br>
+  </div>
+  <script src="/Appointment.js"></script>
+  <script src="/navigation.js"></script>
+  <script>
+    function Delete(x) {
+      x.parentElement.parentElement.remove();
+      // console.log(x.parentElement);
+    }
+  </script>
 </body>
+
 </html>

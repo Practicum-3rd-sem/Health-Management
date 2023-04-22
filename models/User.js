@@ -20,6 +20,11 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
+  },
   details: [
     {
       medname: {
@@ -35,18 +40,8 @@ const UserSchema = new mongoose.Schema({
   ],
   appointments: [
     {
-      Date: {
-        type: String,
-      },
-      Description: {
-        type: String,
-      },
-      Start_time: {
-        type: String,
-      },
-      End_time: {
-        type: String,
-      },
+      type: mongoose.Schema.ObjectId,
+      ref: "Appointment"
     },
   ],
   meals: [
@@ -59,32 +54,42 @@ const UserSchema = new mongoose.Schema({
       },
     },
   ],
-  userDetails: {
-    weight: {
-      type: Number,
-    },
-    height: {
-      type: Number,
-    },
-    mobile: {
-      type: String,
-    },
-    mail: {
-      type: String,
-    },
-    bg: {
-      type: String,
-    },
-    address: {
-      type: String,
-    },
-    gen: {
-      type: String,
-    },
-    BMI: {
-      type: Number,
-    },
-  },
+  userDetails: [
+    {
+      weight: {
+        type: Number,
+      },
+      height: {
+        type: Number,
+      },
+      mobile: {
+        type: String,
+      },
+      mail: {
+        type: String,
+      },
+      bg: {
+        type: String,
+      },
+      address: {
+        type: String,
+      },
+      gen: {
+        type: String,
+      },
+      BMI: {
+        type: Number,
+      },
+    }
+  ],
+});
+
+UserSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'appointments',
+    select: "-user",
+  });
+  next();
 });
 
 module.exports = mongoose.model("User", UserSchema);

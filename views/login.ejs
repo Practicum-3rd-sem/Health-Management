@@ -2,100 +2,72 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up/ Log In</title>
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-    />
-    <link rel="stylesheet" href="loginPage.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <style>
-    hr {
-      border-style: none;
-      border-top-style: dotted;
-      border-color: #4f8bca;
-      border-width: 8px;
-      width: 20%;
-      margin: 0 auto !important;
-    }
-  </style>
-  <body>
-    <div class="contianer">
-      <div class="animated slideInLeft" id="square">
-        <div class="animated bounceInUp" id="rightSquare"></div>
-        <div class="animated bounceInDown" id="leftSquare">
-          <div id="container">
-            <h1
-              class="cta-title"
-              style="font-family: Poppins; line-height: 1.5"
-            >
-              Health Management<br /> and Appointment <br> Webapp
-            </h1>
-            <div class="login">
-              <h3>Sign up for free</h3>
-              <br />
-              <hr />
-              <div
-                class="google-box"
-                style="background: rgb(255, 255, 255); margin-top: 5vh"
-              >
-                <div class="icon-container">
-                  <!-- <i class="fab fa-google"></i> -->
-                  <img
-                    src="icon.png"
-                    alt=""
-                    style="
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up/ Log In</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+  <link rel="stylesheet" href="loginPage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<style>
+  hr {
+    border-style: none;
+    border-top-style: dotted;
+    border-color: #4f8bca;
+    border-width: 8px;
+    width: 20%;
+    margin: 0 auto !important;
+  }
+</style>
+
+<body>
+  <div class="contianer">
+    <div class="animated slideInLeft" id="square">
+      <div class="animated bounceInUp" id="rightSquare"></div>
+      <div class="animated bounceInDown" id="leftSquare">
+        <div id="container">
+          <h1 class="cta-title" style="font-family: Poppins; line-height: 1.5">
+            DocMeet
+          </h1>
+          <div class="login">
+            <h3>Sign up for free</h3>
+            <br />
+            <hr />
+            <div class="google-box" style="background: rgb(255, 255, 255); margin-top: 5vh">
+              <div class="icon-container">
+                <!-- <i class="fab fa-google"></i> -->
+                <img src="icon.png" alt="" style="
                       height: 25px;
                       width: 25px;
                       z-index: 5;
                       background: transparent;
-                    "
-                  />
-                </div>
-                <p class="p-sign">
-                  <a
-                    href="/auth/google"
-                    class="darked"
-                    style="
+                    " />
+              </div>
+              <p class="p-sign">
+                <a href="/auth/google" class="darked" style="
                       color: rgb(59, 59, 59);
                       opacity: 0.8;
                       font-size: 1.8rem;
                       margin: 0;
                       text-decoration: none;
                       font-weight: bolder;
-                    "
-                    >Sign In with Google</a
-                  >
-                </p>
-              </div>
+                    ">Sign In with Google</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

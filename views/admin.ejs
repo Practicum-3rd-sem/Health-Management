@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="width=device-width , initial-scale=1.0">
+    <link rel="stylesheet" href="/Admin.css">
+    <link rel="stylesheet" href="/Navigation_bar.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div class="adminContainer">
+        <div class="navigation">
+            <ul>
+                <li class="list active">
+                    <a href="/auth/logout">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="heading">
+            <h1>Admin Panel</h1>
+        </div>
+        <div class="wrapper">
+
+            <table class="table table-bordered table-hover table-striped" id="appointment_list">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center align-middle" id="date2">Name</th>
+                        <th scope="col" class="text-center align-middle">Mobile Number</th>
+                        <th scope="col" class="text-center align-middle">Gender</th>
+                        <th scope="col" class="text-center align-middle">Date</th>
+                        <th scope="col" class="text-center align-middle">Description</th>
+                        <th scope="col" class="text-center align-middle">Start time</th>
+                        <th scope="col" class="text-center align-middle">End time</th>
+                        <th scope="col" class="text-center align-middle" id="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if(appointments.length> 0) {%>
+                        <% for(var i=0;i<appointments.length;i++) { %>
+                            <tr class="text-center align-middle">
+                                <td id="date2">
+                                    <%= appointments[i].user.firstName %>
+                                </td>
+                                <td>
+                                    <%= appointments[i].user.userDetails[0].mobile %>
+                                </td>
+                                <td>
+                                    <%= appointments[i].user.userDetails[0].gen %>
+
+                                </td>
+                                <td>
+                                    <%= appointments[i].date.toString().slice(0,15) %>
+                                </td>
+                                <td style="max-width:30vw">
+                                    <%= appointments[i].description %>
+                                </td>
+                                <td>
+                                    <%= appointments[i].start_time %>
+                                </td>
+                                <td>
+                                    <%= appointments[i].end_time %>
+                                </td>
+                                <td id="action">
+                                    <button class="btn btn-danger btn-sm" onclick="Delete(this)"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <% } %>
+                                <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    function Delete(x) {
+        x.parentElement.parentElement.remove();
+    }
+</script>
+
+</html>

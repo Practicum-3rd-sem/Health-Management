@@ -13,6 +13,7 @@ const MongoStore = require("connect-mongo");
 const connectDB = require("./config/db");
 require("./config/passport")(passport);
 const User = require("./models/User");
+const Appointment = require("./models/Appointment");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -30,8 +31,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-      mongoUrl:
-        "mongodb+srv://gunjan:19092002@healthapp.tkmqe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      mongoUrl: process.env.MONGO_URI,
     }),
   })
 );
@@ -50,19 +50,15 @@ app.use("/", require("./routes/auth"));
 
 const PORT = process.env.PORT || 3000;
 
-var Date, Description, Start_time, End_time;
 
-app.get("/appointment", function (request, response) {
-  var foundUser = request.user;
-  response.render("appointment", { appointments: foundUser.appointments });
+app.get("/appointment", async (request, response) => {
+  const foundUser = request.user;
+  const appointments = foundUser.appointments;
+  appointments.sort((a, b) => a.date - b.date);
+  response.render("appointment", { appointments: appointments });
 });
 
 app.post("/appointment", async (req, res) => {
-  Date = req.body.date;
-  Description = req.body.description;
-  Start_time = req.body.start_time;
-  End_time = req.body.end_time;
-
   const Founduser = req.user;
   // clg
   try {
@@ -70,13 +66,16 @@ app.post("/appointment", async (req, res) => {
     // console.log(freq)
 
     if (user) {
-      var d = {
-        Date: Date,
-        Description: Description,
-        Start_time: Start_time,
-        End_time: End_time,
-      };
-      user.appointments.push(d);
+      const appointmentDateStr = req.body.date;
+      const arr = appointmentDateStr.split("/");
+      const appointDate = new Date(`${arr[2]}-${arr[1]}-${arr[0]}`);
+      // console.log(appointDate);
+      var appoint = await Appointment.create({
+        ...req.body,
+        user: user._id,
+        date: appointDate,
+      });
+      user.appointments.push(appoint._id);
 
       await user.save();
       res.status(200).redirect("/appointment");
@@ -108,7 +107,7 @@ app.post("/profile", async (request, response) => {
   BMI = (weight * 100 * 100) / (height * height);
   BMI = BMI.toFixed(1);
 
-  console.log("profile", mobile);
+  // console.log("profile", mobile);
   const Founduser = request.user;
   try {
     const user = await User.findById(Founduser.id);
@@ -148,7 +147,7 @@ app.post("/profile", async (request, response) => {
 });
 
 app.get("/profile", function (request, response) {
-  console.log(request);
+  // console.log(request);
   const foundUser = request.user;
   response.render("profile", { foundUser, userDetails: foundUser.userDetails });
 });
@@ -230,5 +229,15 @@ app.get("/disease", function (req, res) {
   res.render("disease.ejs");
 });
 // end for disese
+
+app.get("/admin", async (req, res) => {
+  const currentDate = new Date();
+
+  const upcomingAppointments = await Appointment.find({
+    date: { $gte: currentDate },
+  }).sort("date");
+  console.log(upcomingAppointments);
+  res.render("admin.ejs", { appointments: upcomingAppointments });
+});
 
 app.listen(PORT, console.log(`Server running on ${PORT}`));
