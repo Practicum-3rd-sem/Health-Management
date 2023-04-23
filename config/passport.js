@@ -4,11 +4,11 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // const passport = require("passport");
 const User = require("../models/User");
 const dotenv = require("dotenv");
-dotenv.config({ path: "./config/config.env" });
+dotenv.config();
 
 module.exports = function (passport) {
-  // console.log(process.env.GOOGLE_CLIENT_ID);
-  // console.log(process.env.GOOGLE_CLIENT_SECRET);
+  console.log(process.env.GOOGLE_CLIENT_ID);
+  console.log(process.env.GOOGLE_CLIENT_SECRET);
   passport.use(
     new GoogleStrategy(
       {

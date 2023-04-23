@@ -23,7 +23,7 @@ require("./config/passport")(passport);
 const User = require("./models/User");
 const Appointment = require("./models/Appointment");
 
-dotenv.config({ path: "./config/config.env" });
+dotenv.config();
 
 //connecting to database from ./config/db.js
 connectDB();
